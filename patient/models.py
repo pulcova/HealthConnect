@@ -11,6 +11,12 @@ class Patient(models.Model):
     age = models.IntegerField(default=0)
     doctor = models.ForeignKey("Doctor", on_delete=models.CASCADE)
     
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}" 
+    
 class Doctor(models.Model):
     
-    user = models.OneToOneField(User, on_delete=models.CASCADE)    
+    user = models.OneToOneField(User, on_delete=models.CASCADE)   
+    
+    def __str__(self):
+        return self.user.email 
